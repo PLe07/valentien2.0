@@ -1,32 +1,30 @@
 let messageIndex = 0;
 const messages = [
-  "Tu es sûr(e) ?",
-  "Vraiment ?",
-  "Réfléchis encore...",
-  "Dernière chance !",
-  "Tu vas le regretter...",
-  "Sois gentil(le) !",
-  "Promis, ça sera super !",
-  "Allez, dis oui !"
+    "Tu es sûr(e) ?",
+    "Vraiment ?",
+    "Réfléchis bien...",
+    "Dernière chance !",
+    "Tu vas me briser le cœur... 💔",
+    "S'il te plaît 🥺",
+    "Je vais pleurer...",
+    "OK, j'arrête de demander... (Menteur !)"
 ];
 
 function handleNoClick() {
-  // Ajout du "." pour cibler les classes CSS
-  const noButton = document.querySelector(".no-button");
-  const yesButton = document.querySelector(".yes-button");
+    const noButton = document.querySelector(".no-button");
+    const yesButton = document.querySelector(".yes-button");
 
-  // On change le texte du bouton "Non"
-  noButton.textContent = messages[messageIndex];
-  messageIndex = (messageIndex + 1) % messages.length;
+    // Change le texte du bouton Non
+    noButton.textContent = messages[messageIndex];
+    messageIndex = (messageIndex + 1) % messages.length;
 
-  // On récupère la taille actuelle de la police
-  const style = window.getComputedStyle(yesButton);
-  const currentSize = parseFloat(style.fontSize);
-
-  // Utilisation des backticks (`) pour la template string
-  yesButton.style.fontSize = `${currentSize * 1.5}px`;
+    // Fait grandir le bouton Oui
+    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+    yesButton.style.fontSize = `${currentSize * 1.5}px`;
+    yesButton.style.padding = `${currentSize * 0.8}px ${currentSize * 1.5}px`;
 }
 
 function handleYesClick() {
-  window.location.href = "yes_page.html";
+    // Redirige vers la page de succès
+    window.location.href = "yes_page.html";
 }
